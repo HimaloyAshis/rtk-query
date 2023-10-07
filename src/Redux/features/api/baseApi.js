@@ -12,4 +12,6 @@ const baseApi = createApi({
     })
 })
 
+const { useGetPostQuery} = baseApi;
+
 export default baseApi;
