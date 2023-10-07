@@ -4,5 +4,6 @@ const baseApi = createApi({
     reducerPath:'api',
     baseQuery:fetchBaseQuery({
         baseUrl:'https://jsonplaceholder.typicode.com/'
-    })
+    }),
+    endpoints:{}
 })
