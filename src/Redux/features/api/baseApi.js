@@ -10,10 +10,20 @@ const baseApi = createApi({
             query: ()=> "/posts"
         }),
         getUsers: builder.query({
-            query: ()=>'/users'
+            query: ()=>({
+                url:'/users'  //* here does not need any method or else.
+            })
         }),
         getPostsById : builder.query({
             query: (id)=> `/posts/${id}`
+        }),
+
+        setPost: builder.mutation({
+            query: (post)=>({
+                url:'/posts',
+                method:"POST",
+                body: post
+            })
         })
     })
 })
