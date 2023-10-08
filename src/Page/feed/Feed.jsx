@@ -6,21 +6,24 @@ import { useForm } from 'react-hook-form';
 const Feed = () => {
 
     // const { data: posts, isLoading, isError, error } = useGetPostsQuery()
-    const {register, handleSubmit} = useForm()
+    const { register, handleSubmit } = useForm()
 
-    const {data: posts , isLoading, isError, error} = useGetPostsByIdQuery(1)
+    const { data: posts, isLoading, isError, error } = useGetPostsByIdQuery(1) // object destructure by name
 
-    const [] = useSetPostMutation() // useSetPostMutation return  an array.
+    const [setPost, { data: postData }] = useSetPostMutation() //an array destructure by position  // useSetPostMutation return  an array in which would have two parameter 1st is function (setPost) 2nd is object like above.
 
-    const onSubmit =()=>{
+    console.log(postData)
 
+    const onSubmit = (data) => {
+
+        setPost({title:'all is well', body:data.post, userId: 4343})
     }
 
-    if(isLoading){
+    if (isLoading) {
         <p className='text-9xl text-zinc-300'>Loading  ....</p>
     }
 
-    if(!isLoading && isError){
+    if (!isLoading && isError) {
         <p className='text-9xl text-zinc-300'>something went wrong</p>
 
     }
@@ -41,9 +44,9 @@ const Feed = () => {
                     <button className=' p-2 rounded-md bg-zinc-800 text-zinc-300' type="submit">post</button>
 
                 </form>
-                <Posts  post={posts}>
-                        
-                        </Posts>
+                <Posts post={posts}>
+
+                </Posts>
             </div>
         </div>
     );
