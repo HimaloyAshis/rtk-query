@@ -1,5 +1,5 @@
 import React from 'react';
-import { useGetPostsByIdQuery, useGetPostsQuery } from '../../Redux/features/api/baseApi';
+import { useGetPostsByIdQuery, useGetPostsQuery, useSetPostMutation } from '../../Redux/features/api/baseApi';
 import Posts from '../Post/Posts';
 import { useForm } from 'react-hook-form';
 
@@ -9,6 +9,8 @@ const Feed = () => {
     const {register, handleSubmit} = useForm()
 
     const {data: posts , isLoading, isError, error} = useGetPostsByIdQuery(1)
+
+    const [] = useSetPostMutation() // useSetPostMutation return  an array.
 
     const onSubmit =()=>{
 

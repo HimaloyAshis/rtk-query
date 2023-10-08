@@ -28,6 +28,6 @@ const baseApi = createApi({
     })
 })
 
-export const { useGetPostsQuery, useGetPostsByIdQuery} = baseApi;
+export const { useGetPostsQuery, useGetPostsByIdQuery, useSetPostMutation} = baseApi;
 
 export default baseApi;
